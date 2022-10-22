@@ -102,15 +102,25 @@ console.log(city2.getName());
 // со своими значениями. Примечание: можно обращаться к каждому свойству 
 // через цикл for/in, но методы объекта возвращать не нужно.
 city1.exportStr = function() {
-    for (let i in city1) {
-        
-    }
+    return `name=${this.name}` + `\n` + `population=${this.population}` + `\n`;
 }
+city2.exportStr = function() {
+    return `name=${this.name}` + `\n` + `population=${this.population}` + `\n`;
+}
+console.log(city1.exportStr());
+console.log(city2.exportStr());
 
 // Создайте глобальную функцию getObj(), которая возвращает this. 
 // А у каждого из объектов city1 или city2 метод getCity, который 
 // ссылается на getObj. Проверьте работу метода. Примечание: к объекту 
 // вызова можно обратиться через this..
+function getObj() {
+    return this;
+}
+city1.getCity = function() {
+    
+}
+console.log(city1.getCity());
 
 // Создайте массив d1 с числовыми величинами 45,78,10,3.  
 // Добавьте в массив d1 еще одно число ( d1[7] = 100). 
